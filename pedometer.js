@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Platform } from 'react-native';
 import { Pedometer } from 'expo-sensors';
 
 export default class Steps extends React.Component {
@@ -32,7 +32,7 @@ export default class Steps extends React.Component {
       },
       error => {
         this.setState({
-          isPedometerAvailable: 'Could not get isPedometerAvailabe: ' + error,
+          isPedometerAvailable: 'Could not get isPedometerAvailable: ' + error,
         });
       }
     );
@@ -59,13 +59,34 @@ export default class Steps extends React.Component {
 
   render() {
     return (
-      <>
-        <Text>
-          <Text>Pedometer.isAvailableAsync(): {this.state.isPedometerAvailable}</Text>
-          <Text>Steps taken in the las t24 hours: {this.state.pastStepCount}</Text>
-          <Text>Walk! And watch this go up: {this.state.currentStepCount}</Text>
-        </Text>
-      </>
+
+      <View /* style={styles1.pedometer} */ >
+        <Text style={{fontSize: 17, fontWeight: 'bold'}}>Pedometer.isAvailableAsync(): {this.state.isPedometerAvailable}</Text>
+        <Text style={{fontSize: 17, fontWeight: 'bold'}}>Steps taken in the last 24 hours: {this.state.pastStepCount}</Text>
+        <Text style={{fontSize: 17, fontWeight: 'bold'}}>Walk! And watch this go up: {this.state.currentStepCount}</Text>
+      </View>
+
     )
   }
 }
+
+// const styles1 = StyleSheet.create({
+//   pedometer: {
+//     justifyContent: 'center',
+//     alignContent: 'center',
+//     alignSelf: 'center',
+//     textAlignVertical: 'center',
+//     backgroundColor: 'yellow',
+//     padding: 25,
+//     borderTopLeftRadius: 15,
+//     borderBottomLeftRadius: 15,
+//     borderTopRightRadius: 15,
+//     borderBottomRightRadius: 15,
+//     height: 200,
+//     shadowColor: '#000',
+//     shadowOffset: { width: 0, height: 2 },
+//     shadowOpacity: 0.8,
+//     shadowRadius: 5,
+//     lineHeight: Platform.OS === 'ios' ? 34 : 'normal',
+//   }
+// });
