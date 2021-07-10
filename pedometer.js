@@ -61,7 +61,7 @@ export default class Steps extends React.Component {
     return (
 
       <View /* style={styles1.pedometer} */ >
-        <Text style={{fontSize: 17, fontWeight: 'bold'}}>Pedometer.isAvailableAsync(): {this.state.isPedometerAvailable}</Text>
+        <Text style={{fontSize: 17, fontWeight: 'bold'}}>Is pedometer sensor access on? - {this.state.isPedometerAvailable ? 'yes' : 'no'}</Text>
         <Text style={{fontSize: 17, fontWeight: 'bold'}}>Steps taken in the last 24 hours: {this.state.pastStepCount}</Text>
         <Text style={{fontSize: 17, fontWeight: 'bold'}}>Walk! And watch this go up: {this.state.currentStepCount}</Text>
       </View>
